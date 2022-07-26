@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//book routes
 Route::post('/books',[BookController::class,'store']);
 Route::patch('books/{book}',[BookController::class,'update']);
+Route::delete('books/{book}',[BookController::class,'destroy']);
+//author routes
+Route::post('/authors',[AuthorController::class,'store']);
+
