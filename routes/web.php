@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CheckInController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +23,9 @@ Route::patch('books/{book}',[BookController::class,'update']);
 Route::delete('books/{book}',[BookController::class,'destroy']);
 //author routes
 Route::post('/authors',[AuthorController::class,'store']);
+Route::post('/checkout/{book}',[CheckoutController::class,'store']);
+Route::post('/checkin/{book}',[CheckInController::class,'store']);
+
+
+
 
