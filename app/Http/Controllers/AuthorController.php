@@ -35,11 +35,8 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-
-        $author = Author::create($request->only([
-            'name',
-            'dob'
-        ]));
+       
+        $author = Author::create($this->validation());
        
      //   return redirect($book->path());
         
@@ -88,5 +85,12 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         //
+    }
+    protected function validation()
+    {
+        return request()->validate([
+        'name'=>'required',
+        'dob'=>'required'
+        ]);
     }
 }
